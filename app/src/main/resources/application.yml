@@ -7,6 +7,9 @@ server:
   tomcat:
     mbeanregistry:
       enabled: true
+  error:
+    whitelabel:
+      enabled: false
 
 logging:
   level:
