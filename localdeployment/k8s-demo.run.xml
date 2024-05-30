@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="k8s-demo" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="app" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.brainbulgaria.cloud.spring.kubernetes.demo.MainApplication" />
+    <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+      <option name="credential" />
+      <option name="region" />
+      <option name="useCurrentConnection" value="false" />
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
