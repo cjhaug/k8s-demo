@@ -11,6 +11,26 @@ server:
     whitelabel:
       enabled: false
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: "/status/v1"
+    enabled-by-default: false
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+      status:
+        order: DOWN,OUT_OF_SERVICE,UNKNOWN,WARN,UP
+      probes:
+        enabled: true
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+
 logging:
   level:
     org:
