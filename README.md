@@ -57,7 +57,8 @@ docker build --file=Dockerfile --tag=k8s-demo:latest --rm=true .
 
 ## Deploy application
 ```shell
-kubectl apply -f kubernetes/app/deployment.yml
+helm install k8s-demo kubernetes/k8s-demo --values kubernetes/k8s-demo/values.yaml
+helm upgrade k8s-demo kubernetes/k8s-demo --values kubernetes/k8s-demo/values.yaml
 ```
 
 ## Test application
