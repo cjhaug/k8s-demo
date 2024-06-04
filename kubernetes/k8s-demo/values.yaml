@@ -73,12 +73,22 @@ resources:
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /status/v1/health/liveness
     port: http
+  failureThreshold: 1
+  periodSeconds: 10
 readinessProbe:
   httpGet:
-    path: /
+    path: /status/v1/health/readiness
     port: http
+  failureThreshold: 3
+  periodSeconds: 10
+startupProbe:
+  httpGet:
+    path: /status/v1/health/ping
+    port: http
+  failureThreshold: 6 # 6 * 10s = 1 minute startup
+  periodSeconds: 10
 
 autoscaling:
   enabled: false
