@@ -20,7 +20,7 @@ public class SwaggerConfig {
         return GroupedOpenApi
                 .builder()
                 .group("Greeting API V1")
-                .packagesToScan("com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.boundary")
+                .packagesToScan("com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.control")
                 .pathsToMatch("/**")
                 .addOpenApiCustomizer(apiInfoCustomizer("Greeting API", "API for greetings", "/greeting/v1", "1.0.0"))
                 .build();
