@@ -1,7 +1,7 @@
 package com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.control;
 
-import com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.boundary.IPeopleService;
-import com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.boundary.PeopleService;
+//import com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.boundary.IPeopleService;
+import com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.boundary.PeopleRepository;
 import com.brainbulgaria.cloud.spring.kubernetes.demo.api.greeting.v1.entity.Person;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/greeting/v1")
 @Tag(name = "Greeting API V1", description = "API for greetings")
 public class GreetingResource {
+
+    private PeopleRepository iPeopleService;
     @Autowired
-    public PeopleService peopleService;
+    public GreetingResource(PeopleRepository iPeopleService){
+        this.iPeopleService = iPeopleService;
+    }
 
     @GetMapping(path = "/hello")
     @Operation(summary = "Say Hello",
@@ -33,7 +37,7 @@ public class GreetingResource {
 
     @PostMapping(path = "/hello")
     public void addName(@RequestParam(name = "Person", required = false) Person person) {
-        peopleService.addPerson(person);
+        iPeopleService.save(person);
     }
 
 }
